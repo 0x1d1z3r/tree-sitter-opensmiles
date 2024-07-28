@@ -1,5 +1,6 @@
 module.exports = grammar({
   name: "opensmiles",
+  conflicts : ($) => [[$.branched_atom]],
   rules: {
     smiles: ($) => seq(optional($.chain), $.terminator),
     digit: ($) => choice("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"),
@@ -211,7 +212,7 @@ module.exports = grammar({
         seq(optional($.bond), $.digit),
         seq(optional($.bond), "%", $.digit, $.digit)
       ),
-    branched_atom: ($) => prec.right(seq($.atom, repeat($.ringbond),repeat($.branch))),
+    branched_atom: ($) => seq($.atom, repeat($.ringbond),repeat($.branch)),
     branch: ($) =>
       choice(
         seq("(", $.chain, ")"),
