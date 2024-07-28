@@ -1,6 +1,7 @@
 # tree-sitter-opensmiles
 This is a [Tree-sitter](https://github.com/tree-sitter/tree-sitter) grammar implementing the [OpenSmiles specification](http://opensmiles.org/opensmiles.html)
-
+# DONT USE RIGHT NOW
+It has a fatal flaw , which occurs when bonds are specified e.g. for C=C (Ethylene) and C1C=C1 (Cyclopropene)
 ## How to run
 	git clone https://github.com/0x1d1z3r/tree-sitter-opensmiles
  	cd tree-sitter-opensmiles
