@@ -1,0 +1,64 @@
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<number> ::= <digit> | <digit> <number>
+<space> ::= " "
+<tab> ::= "\t"
+<linefeed> ::= "\n"
+<carriage_return> ::= "\r"
+<atom> ::= <bracket_atom> | <aliphatic_organic> | <aromatic_organic> | "*"
+<aliphatic_organic> ::= "B" | "C" | "N" | "O" | "S" | "P" | "F" | "Cl" | "Br" | "I"
+<aromatic_organic> ::= "b" | "c" | "n" | "o" | "s" | "p"
+<bracket_atom> ::= "[" <bracket_isotope> <symbol> <bracket_chiral> <bracket_hcount> <bracket_charge> <bracket_class> "]"
+<bracket_isotope> ::= <isotope> | E
+<bracket_chiral> ::= <chiral> | E
+<bracket_hcount> ::= <hcount> | E
+<bracket_class> ::= <class> | E
+<bracket_charge> ::= <charge> | E
+<symbol> ::= <element_symbols> | <aromatic_symbols> | "*"
+<isotope> ::= <number>
+<element_symbols> ::= "H" | "He" | "Li" | "Be" | "B" | "C" | "N" | "O" | "F"
+    | "Ne" | "Na" | "Mg" | "Al" | "Si" | "P" | "S" | "Cl" | "Ar" | "K"
+    | "Ca" | "Sc" | "Ti" | "V" | "Cr" | "Mn" | "Fe" | "Co" | "Ni" | "Cu"
+    | "Zn" | "Ga" | "Ge" | "As" | "Se" | "Br" | "Kr" | "Rb" | "Sr" | "Y"
+    | "Zr" | "Nb" | "Mo" | "Tc" | "Ru" | "Rh" | "Pd" | "Ag" | "Cd" | "In"
+    | "Sn" | "Sb" | "Te" | "I" | "Xe" | "Cs" | "Ba" | "Hf" | "Ta" | "W"
+    | "Re" | "Os" | "Ir" | "Pt" | "Au" | "Hg" | "Tl" | "Pb" | "Bi" | "Po"
+    | "At" | "Rn" | "Fr" | "Ra" | "Rf" | "Db" | "Sg" | "Bh" | "Hs" | "Mt"
+    | "Ds" | "Rg" | "La" | "Ce" | "Pr" | "Nd" | "Pm" | "Sm" | "Eu" | "Gd"
+    | "Tb" | "Dy" | "Ho" | "Er" | "Tm" | "Yb" | "Lu" | "Ac" | "Th" | "Pa"
+    | "U" | "Np" | "Pu" | "Am" | "Cm" | "Bk" | "Cf" | "Es" | "Fm" | "Md"
+    | "No" | "Lr"
+<aromatic_symbols> ::= "c" | "n" | "o" | "p" | "s" | "se" | "as"
+<chiral> ::= "@"  | "@@"
+    | "@TH1"  | "@TH2"
+    | "@AL1"  | "@AL2"
+    | "@SP1"  | "@SP2"  | "@SP3"
+    | "@TB1"  | "@TB2"  | "@TB3"  | "@TB4"  | "@TB5"
+    | "@TB6"  | "@TB7"  | "@TB8"  | "@TB9"  | "@TB10"
+    | "@TB11"  | "@TB12"  | "@TB13"  | "@TB14"  | "@TB15"
+    | "@TB16"  | "@TB17"  | "@TB18"  | "@TB19"  | "@TB20"
+    | "@OH1" | "@OH2"  | "@OH3"  | "@OH4"  | "@OH5"
+    | "@OH6"  | "@OH7"  | "@OH8"  | "@OH9"  | "@OH10"
+    | "@OH11"  | "@OH12"  | "@OH13"  | "@OH14" | "@OH15"
+    | "@OH16"  | "@OH17"  | "@OH18"  | "@OH19" | "@OH20"
+    | "@OH21"  | "@OH22"  | "@OH23"  | "@OH24"  | "@OH25"
+    | "@OH26"  | "@OH27" | "@OH28"  | "@OH29" | "@OH30"
+    | "@TB" <digit> <digit> | "@OH" <digit> <digit>
+<hcount> ::= "H" | "H" <digit>
+<charge> ::= "-" | "-" <charge_digit> <digit> | "+" | "+" <charge_digit> <digit>
+<charge_digit> ::= <digit> | E
+<class> ::= ":" <number>
+<ring_membership> ::= "R" | "R" <number>
+<ring_size> ::= "r" | "r" <number>
+<ring_connectivity> ::= "x" | "x" <number>
+<bond> ::= "-" | "=" | "#" | "$" | ":" | "/" | "\\"
+<noo_bond> ::= <bond> | E
+<ringbond> ::= <noo_bond> <digit> | <noo_bond> "%" <digit> <digit>
+<branched_atom> ::= <atom> <ringbond> <branch>
+<noo_ringbond> ::= <ringbond> | E
+<noo_branch> ::= <branch> | E
+<branch> ::= "(" <chain> ")" | "(" <bond> <chain> ")" | "(" <dot> <chain> ")"
+<chain> ::= <branched_atom> | <chain> <branched_atom> | <chain> <bond> <branched_atom>
+    | <chain> <dot> <branched_atom>
+<dot> ::= "."
+<smiles> ::= <chain> <terminator>
+<terminator> ::= <space> | <tab> | <linefeed> | <carriage_return> | E
