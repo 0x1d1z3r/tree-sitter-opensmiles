@@ -10,5 +10,6 @@ This is a [Tree-sitter](https://github.com/tree-sitter/tree-sitter) grammar impl
 
 ## Additional Files
 A pure BNF (non LL) grammar for [OpenSmiles](http://opensmiles.org/) is included in *grammar.bnf*
+
 It is modified for use in [BNFPlayground](https://github.com/paul-kline/bnf-playground) without EBNF syntax
 
