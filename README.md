@@ -4,9 +4,12 @@ This is a [Tree-sitter](https://github.com/tree-sitter/tree-sitter) grammar impl
 ## How to run
 	git clone https://github.com/0x1d1z3r/tree-sitter-opensmiles
  	cd tree-sitter-opensmiles
-	npm install --save-dev tree-sitter-cli
+  
+	npm install --save-dev tree-sitter-cli				# install Tree-sitter
 	export PATH=$PATH:./node_modules/.bin 				# set $PATH 
+ 
 	treesitter generate                   				# generate parser 
+ 
  	tree-sitter build --wasm					# only needed for playground
 	treesitter playground                 				# interactive example
      
