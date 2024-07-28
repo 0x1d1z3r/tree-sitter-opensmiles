@@ -4,7 +4,7 @@ This is a [Tree-sitter](https://github.com/tree-sitter/tree-sitter) grammar impl
 ## How to run
 	git clone https://github.com/0x1d1z3r/tree-sitter-opensmiles
  	cd tree-sitter-opensmiles
-	npm install package.json
+	npm install --save-dev tree-sitter-cli
 	export PATH=$PATH:./node_modules/.bin 				# set $PATH 
 	treesitter generate                   				# generate parser 
 	treesitter playground                 				# interactive example
