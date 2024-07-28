@@ -7,6 +7,7 @@ This is a [Tree-sitter](https://github.com/tree-sitter/tree-sitter) grammar impl
 	npm install --save-dev tree-sitter-cli
 	export PATH=$PATH:./node_modules/.bin 				# set $PATH 
 	treesitter generate                   				# generate parser 
+ 	tree-sitter build --wasm					# only needed for playground
 	treesitter playground                 				# interactive example
      
 
