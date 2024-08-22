@@ -60,5 +60,5 @@
 <chain> ::= <branched_atom> | <chain> <branched_atom> | <chain> <bond> <branched_atom>
     | <chain> <dot> <branched_atom>
 <dot> ::= "."
-<smiles> ::= <chain> <terminator>
+<smiles> ::= <chain> <terminator> | <terminator>
 <terminator> ::= <space> | <tab> | <linefeed> | <carriage_return> | E
